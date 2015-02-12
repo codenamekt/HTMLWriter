@@ -1,0 +1,2 @@
+fakeroot
+python-stdeb
