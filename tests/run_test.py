@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
+
 '''
 ##########
 Main Tests
@@ -8,31 +9,27 @@ Main Tests
 You should run this through the makefile in the main folder
 '''
 
+import unittest
+
+from tornado import testing
+from tornado.web import Application
+from Backend.main import MainHandler
+
 __pyver__ = ['3.2.3']
 __created__ = ['6.7.2012']
-__authors__ = ['vital-fadeev <http://VFadeev.ru>',
-               'Toby <codenamekt@gmail.com>']
+__authors__ = ['Toby <codenamekt@gmail.com>']
 __copyright__ = ['GNU GPL v3 <http://www.gnu.org/licenses/gpl.html>']
 __shortdoc__ = 'Main entry point for tests.'
 
-import unittest
 
-from my_program.run import main
+class MyHTTPTest(testing.AsyncHTTPTestCase):
+    def get_app(self):
+        return Application([('/', MainHandler)])
 
-
-class Test(unittest.TestCase):
-    """Unit tests for main()"""
-
-    def test_main(self):
-        """Test result"""
-        value = True
-        result = main(value)
-        self.assertEqual(value, result)
-
-    #def test_doctest(self):
-        #import doctest
-        #import my_program.utils
-        #doctest.testmod(my_program.utils)
+    def test_homepage(self):
+        self.http_client.fetch(self.get_url('/'), self.stop)
+        response = self.wait()
+        self.assertEqual("Hello, world", response.body)
 
 
 if __name__ == "__main__":

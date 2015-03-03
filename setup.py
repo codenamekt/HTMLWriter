@@ -4,24 +4,24 @@
 from setuptools import setup, find_packages
 
 
-setup(name='my_program',
+setup(name='Backend',
       version='0.0.1',
-      author='My Name',
-      author_email='my@mail.com',
-      url='http://www.my_program.org',
-      download_url='http://www.my_program.org/files/',
-      description='Short description of my_program...',
-      long_description='Short description of my_program...',
+      author='Tobias Stevenson',
+      author_email='codenamekt@gmail.com',
+      url='http://www.Backend.org',
+      download_url='http://www.Backend.org/files/',
+      description='Short description of Backend...',
+      long_description='Long description of Backend...',
 
       packages=find_packages(),
       include_package_data=True,
       package_data={
           '': ['*.txt', '*.rst'],
-          'my_program': ['data/*.html', 'data/*.css'],
+          'Backend': ['data/*.html', 'data/*.css'],
       },
-      exclude_package_data={'': ['README.txt']},
+      exclude_package_data={'': ['README.rst']},
 
-      scripts=['bin/my_program'],
+      scripts=['Backend/main.py'],
 
       keywords='python tools utils internet www',
       license='GPL',
@@ -36,5 +36,5 @@ setup(name='my_program',
                    'Topic :: Internet',
                    'Topic :: Internet :: WWW/HTTP'],
 
-      #setup_requires = ['python-stdeb', 'fakeroot', 'python-all'],
+      setup_requires=[],
       install_requires=['setuptools'])
