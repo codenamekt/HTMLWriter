@@ -26,4 +26,5 @@ More commands
 TODO
 ******************************************************************************
 
-Find out why how to make PySide quicker in tox
+* Find out why how to make PySide quicker in tox
+* Add requirements.txt to build virtualenv for dev

@@ -13,7 +13,7 @@ import unittest
 
 from tornado import testing
 from tornado.web import Application
-from Backend.main import MainHandler
+from backend.main import MainHandler
 
 __pyver__ = ['3.2.3']
 __created__ = ['6.7.2012']
