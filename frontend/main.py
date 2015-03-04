@@ -16,9 +16,16 @@ import sys
 from PySide import QtGui
 from mainwindow import Ui_MainWindow
 
+
+class Control(QtGui.QMainWindow):
+    def __init__(self, parent=None):
+        super(Control, self).__init__(parent)
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+
+
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
-    mySW = Ui_MainWindow()
-    mySW.setupUi()
+    mySW = Control()
     mySW.show()
     sys.exit(app.exec_())
