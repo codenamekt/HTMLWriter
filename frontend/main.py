@@ -23,19 +23,29 @@ LOCAL_DIR = os.path.dirname(LOCAL_FILE)
 
 
 class FileParse:
-    # Todo: Read write from monogdb
     def __init__(self, abs_path, index):
         self.file_path = os.path.join(abs_path, index)
-        self.data = self.refresh()
+        self.data = self.read()
 
-    def read(self):
+    def read(self, index=None):
         """
         Returns data from reading file.
+
+        :param index
+        :type index: str
         :rtype : str
         """
-        with open(self.file_path, 'r') as f:
-            data = f.read()
-            f.close()
+        if index:
+            self.file_path = os.path.join(abs_path, index)
+        else:
+            try:
+                with open(self.file_path, 'r') as f:
+                    data = f.read()
+                    f.close()
+            except (OSError, IOError) as e:
+                # Todo: I/O error dialog
+                # "I/O error({0}): {1}".format(e.errno, e.strerror)
+                raise NotImplementedError("Change to dialog")
 
         return data
 
@@ -64,7 +74,7 @@ class MainWindow(QtGui.QMainWindow):
         Filename to open in preview tab.
         """
         if abs_path and index:
-            self.local_file = FileParse(abs_path, index)
+            self.local_file = FileParse(abs_path=abs_path, index=index)
         elif self.local_file:
             pass
         else:
