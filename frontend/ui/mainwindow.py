@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'resources/mainwindow.ui'
+# Form implementation generated from reading ui file 'frontend/resources/mainwindow.ui'
 #
-# Created: Thu Mar 05 20:40:56 2015
+# Created: Sun Mar 08 21:38:33 2015
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,43 +17,24 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtGui.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
-        self.progressBar = QtGui.QProgressBar(self.centralwidget)
-        self.progressBar.setEnabled(True)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.progressBar.sizePolicy().hasHeightForWidth())
-        self.progressBar.setSizePolicy(sizePolicy)
-        self.progressBar.setMinimumSize(QtCore.QSize(150, 0))
-        self.progressBar.setBaseSize(QtCore.QSize(0, 0))
-        self.progressBar.setAutoFillBackground(False)
-        self.progressBar.setProperty("value", 0)
-        self.progressBar.setInvertedAppearance(True)
-        self.progressBar.setObjectName("progressBar")
-        self.gridLayout.addWidget(self.progressBar, 1, 2, 1, 1)
         self.line = QtGui.QFrame(self.centralwidget)
         self.line.setFrameShape(QtGui.QFrame.VLine)
         self.line.setFrameShadow(QtGui.QFrame.Sunken)
         self.line.setObjectName("line")
         self.gridLayout.addWidget(self.line, 1, 1, 1, 1)
-        self.label = QtGui.QLabel(self.centralwidget)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
-        self.label.setSizePolicy(sizePolicy)
-        self.label.setObjectName("label")
-        self.gridLayout.addWidget(self.label, 1, 0, 1, 1)
         self.tabWidget = QtGui.QTabWidget(self.centralwidget)
         self.tabWidget.setObjectName("tabWidget")
         self.edit_tab = QtGui.QWidget()
         self.edit_tab.setObjectName("edit_tab")
+        self.editor = QtWebKit.QWebView(self.edit_tab)
+        self.editor.setGeometry(QtCore.QRect(0, 0, 781, 531))
+        self.editor.setObjectName("editor")
         self.tabWidget.addTab(self.edit_tab, "")
         self.preview_tab = QtGui.QWidget()
         self.preview_tab.setObjectName("preview_tab")
-        self.browser = QtWebKit.QWebView(self.preview_tab)
-        self.browser.setGeometry(QtCore.QRect(0, 0, 781, 491))
-        self.browser.setObjectName("browser")
+        self.previewer = QtWebKit.QWebView(self.preview_tab)
+        self.previewer.setGeometry(QtCore.QRect(0, 0, 781, 531))
+        self.previewer.setObjectName("previewer")
         self.tabWidget.addTab(self.preview_tab, "")
         self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 3)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -65,9 +46,6 @@ class Ui_MainWindow(object):
         self.menuView = QtGui.QMenu(self.menubar)
         self.menuView.setObjectName("menuView")
         MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtGui.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
         self.actionOpen = QtGui.QAction(MainWindow)
         self.actionOpen.setObjectName("actionOpen")
         self.actionRecent = QtGui.QAction(MainWindow)
@@ -84,12 +62,11 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuView.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("MainWindow", "TextLabel", None, QtGui.QApplication.UnicodeUTF8))
         self.edit_tab.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p>This</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.edit_tab), QtGui.QApplication.translate("MainWindow", "Edit", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.preview_tab), QtGui.QApplication.translate("MainWindow", "Preview", None, QtGui.QApplication.UnicodeUTF8))

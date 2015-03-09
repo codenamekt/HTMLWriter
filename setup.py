@@ -37,5 +37,5 @@ setup(
                  'Topic :: Internet :: WWW/HTTP'],
     
     setup_requires=[],
-    install_requires=['setuptools', 'PySide']
+    install_requires=['setuptools', 'PySide', 'tornado', 'tornado', 'tornado', 'tornado']
 )

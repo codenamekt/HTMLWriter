@@ -34,12 +34,12 @@
        <attribute name="title">
         <string>Edit</string>
        </attribute>
-       <widget class="QTextEdit" name="textEdit">
+       <widget class="QWebView" name="editor" native="true">
         <property name="geometry">
          <rect>
-          <x>-7</x>
+          <x>0</x>
           <y>0</y>
-          <width>791</width>
+          <width>781</width>
           <height>531</height>
          </rect>
         </property>
@@ -49,7 +49,7 @@
        <attribute name="title">
         <string>Preview</string>
        </attribute>
-       <widget class="QWebView" name="browser" native="true">
+       <widget class="QWebView" name="previewer" native="true">
         <property name="geometry">
          <rect>
           <x>0</x>
