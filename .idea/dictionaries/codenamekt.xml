@@ -2,6 +2,7 @@
   <dictionary name="codenamekt">
     <words>
       <w>pyver</w>
+      <w>shortdoc</w>
     </words>
   </dictionary>
 </component>
